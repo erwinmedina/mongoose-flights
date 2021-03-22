@@ -1,0 +1,47 @@
+body {
+  background: linear-gradient(#bdc3c7, #2c3e50);
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.container {
+  padding: 0;
+  width: 500px;
+}
+
+h2 {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-transform: uppercase;
+}
+.navbar-brand {
+  font-size: 30px;
+}
+
+.input-group-text {
+  width: 150px;
+}
+
+.input-group {
+  width: 400px;
+}
+
+.table-primary {
+  text-transform: uppercase;
+}
