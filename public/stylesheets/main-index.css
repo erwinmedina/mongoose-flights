@@ -1,8 +1,22 @@
 body {
-  text-transform: uppercase;
+  font-size: 30px;
   height: 100vh;
   width: 100vw;
-  background: url(https://images.unsplash.com/photo-1520437358207-323b43b50729?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YWlyY3JhZnR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80);
+  background: url(https://i.pinimg.com/originals/90/58/a5/9058a5ec013afe7563cb32b507a5d586.jpg);
   background-size: cover;
   background-position: center;
+}
+
+nav {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.navbar-brand {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 40px;
 }

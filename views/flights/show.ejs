@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/flights-index.css' />
+    <link rel='stylesheet' href='/stylesheets/flights-details.css' />
     <script src="../../public/javascripts/background.js"></script>
 
     <title>Mongoose Flightz</title>
@@ -23,44 +24,105 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/flights/new">Add<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/flights">All Flights<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr class="table-primary">
-                    <th>Airline</th>
-                    <th>Flight #</th>
-                    <th>Airport Code</th>
-                    <th>Departs</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% flights.forEach(function(f) { %>
-                    <tr>
-                        <td>
-                            <%= f.property %>
-                        </td>
-                        <td>
-                            <%= f.flightNo %>
-                        </td>
-                        <td>
-                            <%= f.airport %>
-                        </td>
-                        <td>
-                            <%= f.departs %>
-                        </td>
-                    </tr>
-                    <% }) %>
-            </tbody>
-        </table>
+    <h2>Current Airline Information</h2>
+
+    <div class="container current">
+
+        <div class="input-group mb-3">
+            <span class="input-group-text mr-3">
+                Airline:
+            </span>
+            <span class="input-group-text">
+                <%= flight.property %>
+            </span>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text mr-3">
+                Flight Number:
+            </span>
+            <span class="input-group-text">
+                <%= flight.flightNo %>
+            </span>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text mr-3">
+                Departure:
+            </span>
+            <span class="input-group-text">
+                <%= flight.departs %>
+            </span>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text mr-3">
+                Airport:
+            </span>
+            <span class="input-group-text">
+                <%= flight.airport %>
+            </span>
+        </div>
 
     </div>
+    <h2>Destination</h2>
 
-</body>
+    <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Arrival Date:</span>
+            </div>
+            <input name="arrival" type="datetime-local" class="items form-control" aria-label="arrival"
+                aria-describedby="basic-addon2">
+        </div>
+
+        <div class=" input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="airport">Airport</label>
+            </div>
+            <select class="items custom-select" name="airport">
+                <option value="AUS">AUS</option>
+                <option value="DFW">DFW</option>
+                <option value="DEN" selected="selected">DEN</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+            </select>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Add Destination">
+    </form>
+
+
+    <% if (flight.destinations.length) { %>
+        <div class="container destination">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-primary">
+                        <th>Arrival Date</th>
+                        <th>Airport</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% flight.destinations.forEach(function(f) { %>
+                        <tr>
+                            <td>
+                                <%= f.arrival %>
+                            </td>
+                            <td>
+                                <%= f.airport %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+
+            <% } else { %>
+                <h2 class="noDestinations">No Destinations Yet</h2>
+                <% } %>
+        </div>
 
 </html>

@@ -32,29 +32,29 @@
         <table class="table table-striped">
             <thead>
                 <tr class="table-primary">
-                    <th>Airline</th>
-                    <th>Flight #</th>
-                    <th>Airport Code</th>
-                    <th>Departs</th>
-                    <th>Details</th>
+                    <th class="align-middle">Airline</th>
+                    <th class="align-middle">Flight #</th>
+                    <th class="align-middle">Airport Code</th>
+                    <th class="align-middle">Departs</th>
+                    <th class="align-middle">Details</th>
                 </tr>
             </thead>
             <tbody>
                 <% flights.forEach(function(f) { %>
                     <tr>
-                        <td>
+                        <td class="align-middle">
                             <%= f.property %>
                         </td>
-                        <td>
+                        <td class="align-middle">
                             <%= f.flightNo %>
                         </td>
-                        <td>
+                        <td class="align-middle">
                             <%= f.airport %>
                         </td>
-                        <td>
+                        <td class="align-middle">
                             <%= f.departs %>
                         </td>
-                        <td>
+                        <td class="align-middle">
                             <a class="btn btn-primary" href="/flights/<%= f._id %>">Details</a>
                         </td>
                     </tr>

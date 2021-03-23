@@ -1,0 +1,26 @@
+body {
+  height: 100vh;
+}
+
+.current {
+  background: rgba(0, 0, 0, 0);
+}
+.current div {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.current div span {
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.current div span:nth-child(2) {
+  color: red;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

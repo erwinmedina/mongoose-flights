@@ -13,7 +13,7 @@ body {
 .container {
   padding: 0;
   background: white;
-  width: 900px;
+  width: 950px;
 }
 
 h2 {
@@ -26,6 +26,10 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 a {
@@ -44,5 +48,6 @@ a {
 }
 
 .table-primary {
+  font-style: italic;
   text-transform: uppercase;
 }

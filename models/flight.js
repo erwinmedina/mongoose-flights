@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema; 
 
 const destinationSchema = new Schema (
@@ -28,8 +27,8 @@ const flightSchema = new Schema (
                 return date;
              }},
         destinations: [destinationSchema]
-        }
-        
-        );
+    }, {
+        timestamps: true
+    });
 
 module.exports = mongoose.model('Flight', flightSchema);
