@@ -1,10 +1,12 @@
 const Flight = require('../models/flight');
+const Ticket = require("../models/ticket")
 
 module.exports = {
     index,
     show,
     new: newFlight,
     create,
+    delete: deleteFlight,
 };
 
 function index(req, res) {
@@ -15,7 +17,10 @@ function index(req, res) {
 
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
-        res.render('flights/show', {title: "Flights Details", flight});
+        Ticket.find({flight: req.params.id}, function(err, tickets) {
+            if (err) console.log(err);
+            res.render('flights/show', {title: "Flights Details", flight});
+        })
     })
 }
 
@@ -36,4 +41,11 @@ function newFlight(req, res) {
     let departsDate = `${dt.getFullYear()}-${(dt.getMonth() + 1).toString().padStart(2, '0')}`;
     departsDate += `-${dt.getDate().toString().padStart(2, '0')}T${dt.toTimeString().slice(0, 5)}`;
     res.render('flights/new', {departsDate});   
+}
+
+function deleteFlight(req, res) {
+    Flight.findByIdAndDelete(req.params.id, function(err, deletedFlight) {
+        if (err) console.log(err)
+    })
+    res.redirect('/flights');
 }
