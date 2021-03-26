@@ -1,13 +1,12 @@
 html {
+  min-height: 100vh;
 }
 
 body {
+  height: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
   background: linear-gradient(#bdc3c7, #2c3e50);
   margin: 0 auto;
-  height: 100vh;
-  width: 100vw;
   text-align: center;
 }
 
@@ -33,15 +32,21 @@ form {
   align-items: center;
 }
 
-.navbar {
-  background: rgba(0, 0, 0, 0.5);
+nav {
+  background: rgba(0, 0, 0, 0.2);
 }
 
-a {
-  text-transform: uppercase;
+.nav-link {
+  font-size: 25px;
+  text-decoration: underline;
 }
+.nav-link:hover {
+  color: white !important;
+}
+
 .navbar-brand {
-  font-size: 30px;
+  font-size: 40px;
+  color: white !important;
 }
 
 .input-group-text {
